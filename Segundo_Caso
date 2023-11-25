@@ -1,0 +1,52 @@
+var camara = 1;
+var Sensor = 0;
+var PuertaIngreso1 = 2;
+var PuertaIngreso2 = 3;
+var PuertaIngreso3 = 4;
+var PuertaIngreso4 = 5;
+var PuertaIngreso5 = 6;
+var PuertaIngreso6 = 7;
+var camaraaula=8;
+var Sensor2=9;
+
+function setup(){
+	pinMode(Sensor, INPUT); //Sensor
+	pinMode(Sensor2, INPUT); //Sensor
+	pinMode(camara, OUTPUT);
+	pinMode(camaraaula, OUTPUT);
+	pinMode(PuertaIngreso1, OUTPUT);
+	pinMode(PuertaIngreso2, OUTPUT);
+	pinMode(PuertaIngreso3, OUTPUT);
+	pinMode(PuertaIngreso4, OUTPUT);
+	pinMode(PuertaIngreso5, OUTPUT);
+	pinMode(PuertaIngreso6, OUTPUT);
+
+}
+
+function loop(){
+	if(digitalRead(Sensor)==HIGH){
+		customWrite(camara,HIGH);
+		
+		
+	}else{
+	
+		customWrite(camara, LOW)
+
+		
+	}
+	
+	if(digitalRead(Sensor2)==HIGH){
+			customWrite(PuertaIngreso5,'1')
+			customWrite(camaraaula,HIGH);
+		
+		
+	}else{
+	
+		customWrite(PuertaIngreso5, '0')
+		customWrite(camaraaula, LOW)
+
+		
+		
+	}
+	
+}
