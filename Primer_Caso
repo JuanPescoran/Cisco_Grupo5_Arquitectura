@@ -1,0 +1,59 @@
+var camaraIngreso = 0;
+var SensorIngreso1 = 1;
+var PuertaIngreso = 2;
+var SensorIngreso2 = 3;
+var SensorSalida = 4;
+var PuertaSalida = 5;
+var CamaraSalida = 6;
+var PanLedSalida = 7;
+var PanledIngreso=8;
+var Alarma = 9;
+
+function setup(){
+	pinMode(SensorIngreso1, INPUT); //Sensor
+	pinMode(SensorIngreso2, INPUT); //SENSOR
+	pinMode(SensorSalida, INPUT); // sensor
+	pinMode(camaraIngreso, OUTPUT);
+	pinMode(Alarma, OUTPUT);
+	pinMode(PuertaIngreso, OUTPUT);
+	pinMode(PuertaSalida, OUTPUT);
+	pinMode(PanLedSalida, OUTPUT);
+	pinMode(PanledIngreso, OUTPUT);
+	pinMode(CamaraSalida, OUTPUT);
+}
+
+function loop(){
+	if(digitalRead(SensorIngreso1)==HIGH){
+		customWrite(PuertaIngreso, '1');
+		customWrite(camaraIngreso,HIGH);
+		customWrite(PanledIngreso,"Bienvenido estimado estudiante :D");
+		
+		
+	}else{
+	
+		customWrite(PuertaIngreso, '0')
+		customWrite(camaraIngreso, LOW)
+		digitalWrite(Alarma,LOW)
+		customWrite(PanledIngreso,"Apagado");
+		
+		
+	}
+	
+	if(digitalRead(SensorSalida)==HIGH){
+			customWrite(PuertaSalida,'1')
+			digitalWrite(Alarma,HIGH);
+			customWrite(PanLedSalida,"Usuario no identificado D:");
+			customWrite(CamaraSalida,HIGH);
+		
+		
+	}else{
+	
+		customWrite(PuertaSalida, '0')
+		customWrite(CamaraSalida, LOW)
+		digitalWrite(Alarma,LOW)
+		customWrite(PanLedSalida,"Apagado");
+		
+		
+	}
+	
+}
